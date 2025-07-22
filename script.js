@@ -7,14 +7,14 @@ const getWeather = async () => {
   const weatherIcon = document.getElementById('weatherIcon');
 
   if (!city || !country) {
-    weatherText.innerHTML = '❗ Please enter both city and country code.';
+    weatherText.innerHTML = 'Please enter both city and country code.';
     weatherIcon.style.display = 'none';
     return;
   }
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`;
 
-  weatherText.innerHTML = '🔄 Fetching weather...';
+  weatherText.innerHTML = 'Fetching weather...';
   weatherIcon.style.display = 'none';
 
   try {
@@ -36,7 +36,7 @@ const getWeather = async () => {
     weatherIcon.alt = weather[0].description;
     weatherIcon.style.display = 'block';
   } catch (error) {
-    weatherText.innerHTML = `❌ Error: ${error.message}`;
+    weatherText.innerHTML = `Error: ${error.message}`;
     weatherIcon.style.display = 'none';
   }
 };
